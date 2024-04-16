@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Electric Vehicles Charging Points</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Leaflet JavaScript code -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+    
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Leaflet heatmap plugin-->
+    <script type="text/javascript" src="static/js/leaflet-heat.js"></script>
+
+</head>
+
+<body>
+
+    <div id="map" style="height: 600px;"></div>
+
+    <!-- Dropdown for selecting state -->
+    <label for="state-select">Select State:</label>
+    <select id="state-select">
+        <option value="marker.js">Home</option>
+        <option value="markerCA.js" data-zoom="6" data-coordinates="[37.7783, -119.4179]">California</option>
+        <option value="markerNC.js" data-zoom="7" data-coordinates="[35.7596, -79.0193]">North Carolina</option>
+        <option value="markerTN.js" data-zoom="7" data-coordinates="[35.5175, -86.5804]">Tennessee</option>
+        <option value="markerVT.js" data-zoom="7" data-coordinates="[44.5588, -72.5778]">Vermont</option>
+    </select>
+
+    <!-- Dropdown for selecting year -->
+    <label for="year-select">Select Year:</label>
+    <select id="year-select">
+        <option value="2019">Befrore 2020</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+    </select>
+
+    <!-- JavaScript file -->
+    <script type="text/javascript" src="static/js/marker.js" id="marker-script"></script>
+
+    <script>
+        // Function to load marker file based on selected state
+        document.getElementById('state-select').addEventListener('change', function () {
+            var selectedState = this.value;
+            loadMarkerFile(selectedState);
+        });
+
+        // Function to load marker file based on selected state
+        function loadMarkerFile(markerFile) {
+            console.log("Selected state:", markerFile);
+
+            // If "Home" is selected, reload the page
+            if (markerFile === "marker.js") {
+                location.reload();
+                return; // Stop execution
+            }
+
+            // Remove previously loaded marker script
+            var existingMarkerScript = document.getElementById('marker-script');
+            if (existingMarkerScript) {
+                existingMarkerScript.remove();
+            }
+
+            // Create new script element for selected marker file
+            var newMarkerScript = document.createElement('script');
+            newMarkerScript.id = 'marker-script';
+            newMarkerScript.src = 'static/js/' + markerFile;
+            newMarkerScript.type = 'text/javascript';
+            document.body.appendChild(newMarkerScript);
+
+            // Zoom to the selected state
+            var selectElement = document.getElementById('state-select');
+            var selectedIndex = selectElement.selectedIndex;
+            var selectedOption = selectElement.options[selectedIndex];
+            var zoom = selectedOption.dataset.zoom;
+            var coordinates = JSON.parse(selectedOption.dataset.coordinates);
+
+            // Zoom to the selected coordinates with the specified zoom level
+            myMap.setView(coordinates, zoom);
+        }
+    </script>
+
+</body>
+
+</html>

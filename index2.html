@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total Stations by Year and State</title>
+</head>
+<body>
+  <h1>Total Stations by Year and State</h1>
+  <table>
+    <tr>
+      <th>State</th>
+      <th>Stations before 2020</th>
+      <th>Stations in 2020</th>
+      <th>Stations in 2021</th>
+      <th>Stations in 2022</th>
+    </tr>
+    <tr>
+      <td>California</td>
+      <td id="caStationsBefore2020"></td>
+      <td id="caStations2020"></td>
+      <td id="caStations2021"></td>
+      <td id="caStations2022"></td>
+    </tr>
+    <tr>
+      <td>North Carolina</td>
+      <td id="ncStationsBefore2020"></td>
+      <td id="ncStations2020"></td>
+      <td id="ncStations2021"></td>
+      <td id="ncStations2022"></td>
+    </tr>
+    <tr>
+      <td>Tennessee</td>
+      <td id="tnStationsBefore2020"></td>
+      <td id="tnStations2020"></td>
+      <td id="tnStations2021"></td>
+      <td id="tnStations2022"></td>
+    </tr>
+    <tr>
+      <td>Vermont</td>
+      <td id="vtStationsBefore2020"></td>
+      <td id="vtStations2020"></td>
+      <td id="vtStations2021"></td>
+      <td id="vtStations2022"></td>
+    </tr>
+  </table>
+
+  <script>
+    // URL for API request
+    const url = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=H0bVyMLzqj1Wd45IS1IxBUygOOwx7nH50dOa68hC&fuel_type=ELEC";
+
+    // Function to count stations before a specific year and for a specific state
+    function countStationsBeforeYear(data, year, state) {
+      let totalStations = 0;
+
+      data.fuel_stations.forEach(station => {
+        const stationYear = new Date(station.open_date).getFullYear();
+        if (stationYear <= year && station.state === state) {
+          totalStations++;
+        }
+      });
+
+      return totalStations;
+    }
+
+    // Function to update HTML with station counts for a specific state
+    function updateStationCounts(data, state) {
+      const stationsBefore2020 = countStationsBeforeYear(data, 2020, state);
+      const stations2020 = countStationsBeforeYear(data, 2021, state);
+      const stations2021 = countStationsBeforeYear(data, 2022, state);
+      const stations2022 = data.fuel_stations.filter(station => station.state === state).length;
+
+      document.getElementById(`${state.toLowerCase()}StationsBefore2020`).textContent = stationsBefore2020;
+      document.getElementById(`${state.toLowerCase()}Stations2020`).textContent = stationsBefore2020 + stations2020;
+      document.getElementById(`${state.toLowerCase()}Stations2021`).textContent = stationsBefore2020 + stations2020 + stations2021;
+      document.getElementById(`${state.toLowerCase()}Stations2022`).textContent = stationsBefore2020 + stations2020 + stations2021 + stations2022;
+    }
+
+    // Fetch data from the API and update HTML for all states
+    async function fetchDataAndUpdate() {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Check if data is available
+        if (data && data.fuel_stations) {
+          // Update counts for each state
+          updateStationCounts(data, "CA"); // California
+          updateStationCounts(data, "NC"); // North Carolina
+          updateStationCounts(data, "TN"); // Tennessee
+          updateStationCounts(data, "VT"); // Vermont
+        } else {
+          console.log("No data available");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    // Call the function to fetch data and update HTML for all states
+    fetchDataAndUpdate();
+  </script>
+</body>
+</html>
+
