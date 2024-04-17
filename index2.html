@@ -66,9 +66,9 @@
     // Function to update HTML with station counts for a specific state
     function updateStationCounts(data, state) {
       const stationsBefore2020 = countStationsBeforeYear(data, 2020, state);
-      const stations2020 = countStationsBeforeYear(data, 2021, state);
-      const stations2021 = countStationsBeforeYear(data, 2022, state);
-      const stations2022 = data.fuel_stations.filter(station => station.state === state).length;
+      const stations2020 = countStationsBeforeYear(data, 2021, state) - stationsBefore2020;;
+      const stations2021 = countStationsBeforeYear(data, 2022, state) - stations2020 - stationsBefore2020;;
+      const stations2022 = data.fuel_stations.filter(station => station.state === state).length - stationsBefore2020 - stations2020 - stations2021; ;
 
       document.getElementById(`${state.toLowerCase()}StationsBefore2020`).textContent = stationsBefore2020;
       document.getElementById(`${state.toLowerCase()}Stations2020`).textContent = stationsBefore2020 + stations2020;
