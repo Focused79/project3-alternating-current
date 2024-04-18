@@ -1,5 +1,6 @@
 
-![AC](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/image1-e1702620689960.png)
+![image1-e1702620689960](https://github.com/Focused79/project3-alternating-current/assets/152096353/205e25c5-40b7-4243-ac4d-a24062c32da7)
+
 
 # Alternating Current
 Martin Z. Paul A. Mario G. Josh B.
@@ -17,34 +18,37 @@ Our research aims to address these key questions:
 ## Visualizations: Marker Maps & Heatmaps, Line Charts, Data Frame Table.
 
 
-* The **Heatmap** shows **EV Registrations** with a drop down menu to select the state and year. The color gradients represent values. The higher the value the brighter the color; the lower values are cooler colors.
+* The **Heatmaps** shows **EV Registrations** with a drop down menu to select the state and year. The color gradients represent values. The higher the value the brighter the color; the lower values are cooler colors.
 
-* The **Marker Map** displays states with the highest & lowest EV Registration using a drop down menu to the select state and year.
+* The **Marker Maps** display states with the highest & lowest EV Registration using a drop down menu to the select state and year.
 
-* The line graph compares the growth of EV Registration and Infrastructure Development with a drop down menu for selecting states. 
+* The **Line Charts** compares the growth of EV Registration and Infrastructure Development with a drop down menu for selecting states. 
 
-![](header.png)
 
 ## Demo
-![Alt Text](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/PaulCodeVisualizations-ezgif.com-video-to-gif-converter.gif)
+![PaulCodeVisualizations-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/5fbf2870-cdd4-4663-be9c-542259a41084)
+
 
 >Code displaying **Charging Points** & **EV** **Registrations** on an interactive **Marker** **Map** & **Heatmap** (Python Plotly).
 
-![Alt Text](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/MartinMarkerMap-ezgif.com-video-to-gif-converter.gif)
+![MartinMarkerMap-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/bb2e93f6-0688-438e-8dc0-11e44b6bcfa0)
+
 
 >The interactive **Marker Map** above shows the growth of **EV** **Charging Points** from before 2020 to 2022. (JavaScript) 
 
-![Alt Text](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/MartinTableDropDowns-ezgif.com-video-to-gif-converter.gif)
+![MartinTableDropDowns-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/c4025149-f331-40d3-8b9a-380978b1cf37)
 
->The **Marker Map** has two drop down menus with a table displaying the **Total** **Stations** by **Year** and **State**. There is also a line graph with a drop down menu selection as seen below. (JavaScript) 
 
-![Line Chart](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/MartinLineChart-ezgif.com-video-to-gif-converter.gif)
+>The **Marker Map** has two drop down menus with a table displaying the **Total** **Stations** by **Year** and **State**. (JavaScript)
+
+![MartinLineChart-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/ec763ff0-4dc3-41e2-b60f-eac59c0c0b78)
+
 
 >The **Line Chart** visualizes the rate of growth of the charging stations infrastructure per state and year. (JavaScript)
 
 
 
- **Ethical Consideration**
+ **Ethical Consideration**:
  The data used is anonymous and we avoided including sensitive information such as VIN numbers. We only used zip codes for our location analysis.
 
 ## Authors
@@ -77,10 +81,13 @@ Name: **State EV Registration Data**
 ### Dataset Description
 - The State EV Registration dataset provides information on electric vehicle (EV) registrations per state, sourced from the following agencies: California Energy Commission, North Carolina Department of Transportation, Tennessee Department of Environment, and Vermont Air Quality and Climate Program.
 - The Alternative Fuel Stations dataset provides current information on alternative fuel (charging) stations. The data is sourced from the National Renewable Energy Laboratory's Developer Network and can be accessed via (https://www.nrel.gov/)
+- U.S. counties databases. Includes latitude, longitude, population, largest city, zip codes
 
 ### State Research Selection 
-![XLsheet](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/xlsheet.png)
->  
+<img width="718" alt="xlsheet" src="https://github.com/Focused79/project3-alternating-current/assets/152096353/0ad0e229-92e4-4eba-b28d-960f6c7fb102">
+
+>We calculated the ratio per capita of all the states above for registrations & charging stations from 2020-2022. Analyzed States: California, North Carolina, Tennessee, Vermont.
+  
 ### Data Usage
 The datasets offer valuable insights into the adoption and distribution of EVs across different states, and the alternative fuel stations locations; making it a valuable resource for market research. 
 
@@ -95,10 +102,9 @@ The datasets offer valuable insights into the adoption and distribution of EVs a
 ## Summary 
 The data shows a correlation of growth between the charging station infrastructure and EV registration. By combining/comparing datasets and creating interactive visuals; we were able to determine that well developed charging infrastructures are linked to higher EV usage & registrations. Our analysis indicates that greater accessibility to charging stations leads to increased EV adoption, highlighting the importance of strategic placement and accessibility in promoting EV use.
 
+<img width="442" alt="AC" src="https://github.com/Focused79/project3-alternating-current/assets/152096353/3ded1f1e-c735-497c-a530-22001cb27c3c">
 
 
 
 
 
-
-![AC](/Users/cmgarxia/Desktop/SMUBC/project3-alternating-current/content/AC.png)
