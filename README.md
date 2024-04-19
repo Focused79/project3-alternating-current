@@ -24,12 +24,14 @@ Our research aims to address these key questions:
 
 * The **Line Charts** compares the growth of EV Registration and Infrastructure Development with a drop down menu for selecting states. 
 
+## How to interact with the Flask, Plotly Express Heatmaps and Marker Maps:
+Run Flask Code, select HTTP in python output, the webpage will populate & you must **select and submit** a year in the dropdown menu to view the Maps.
 
 ## Demo
 ![PaulCodeVisualizations-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/5fbf2870-cdd4-4663-be9c-542259a41084)
 
 
->Code displaying **Charging Points** & **EV** **Registrations** on an interactive **Marker** **Map** & **Heatmap** (Python Plotly).
+>Code displaying **Charging Points** & **EV** **Registrations** on an interactive **Marker** **Map** & **Heatmap** (Python Plotly Express). 
 
 ![MartinMarkerMap-ezgif com-video-to-gif-converter](https://github.com/Focused79/project3-alternating-current/assets/152096353/bb2e93f6-0688-438e-8dc0-11e44b6bcfa0)
 
