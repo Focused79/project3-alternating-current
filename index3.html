@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Line Charts</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Multiple Line Charts</h1>
+
+  <!-- Dropdown menu -->
+  <label for="chartSelector">Select State:</label>
+  <select id="chartSelector">
+    <option value="californiaChart">California</option>
+    <option value="northCarolinaChart">North Carolina</option>
+    <option value="tennesseeChart">Tennessee</option>
+    <option value="vermontChart">Vermont</option>
+  </select>
+
+  <div>
+    <h2>California</h2>
+    <canvas id="californiaChart" width="400" height="200"></canvas>
+  </div>
+
+  <div>
+    <h2>North Carolina</h2>
+    <canvas id="northCarolinaChart" width="400" height="200"></canvas>
+  </div>
+
+  <div>
+    <h2>Tennessee</h2>
+    <canvas id="tennesseeChart" width="400" height="200"></canvas>
+  </div>
+
+  <div>
+    <h2>Vermont</h2>
+    <canvas id="vermontChart" width="400" height="200"></canvas>
+  </div>
+
+  <script>
+    // Function to hide all charts
+    function hideAllCharts() {
+      const charts = document.querySelectorAll('canvas');
+      charts.forEach(chart => {
+        chart.style.display = 'none';
+      });
+    }
+
+    // Function to show selected chart
+    function showSelectedChart(chartId) {
+      hideAllCharts();
+      const selectedChart = document.getElementById(chartId);
+      if (selectedChart) {
+        selectedChart.style.display = 'block';
+      }
+    }
+
+    // Event listener for dropdown change
+    document.getElementById('chartSelector').addEventListener('change', function() {
+      const selectedChartId = this.value;
+      showSelectedChart(selectedChartId);
+    });
+
+    // Show default chart
+    showSelectedChart('californiaChart');
+  </script>
+  <script src="graphCA.js"></script>
+  <script src="graphNC.js"></script>
+  <script src="graphTN.js"></script>
+  <script src="graphVT.js"></script>
+</body>
+</html>
