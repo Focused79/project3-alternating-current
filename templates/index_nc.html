@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive EV Stations/Registrations in North Carolina</title>
+    <script>
+        function updateIframe() {
+            var selectedYear = document.getElementById('yearDropdown').value;
+            var heatmapIframe = document.getElementById('heatmapIframe');
+            var markerMapIframe = document.getElementById('markerMapIframe');
+            heatmapIframe.src = "{{ url_for('heatmap', year='') }}/" + selectedYear;
+            markerMapIframe.src = "{{ url_for('marker_map', year='') }}/" + selectedYear;
+        }
+
+        function submitYear() {
+            updateIframe();
+        }
+    </script>
+</head>
+<body>
+    <h1>North Carolina Registration Heatmap</h1>
+    <select id="yearDropdown">
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+    </select>
+    <button onclick="submitYear()">Submit</button>
+    <iframe id="heatmapIframe" width="100%" height="600"></iframe>
+
+    <h1>North Carolina Station Marker Map</h1>
+    <iframe id="markerMapIframe" width="100%" height="600"></iframe>
+</body>
+</html>
